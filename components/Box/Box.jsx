@@ -19,8 +19,13 @@ import { ItemTypes } from '../../constants/dndCompTypes';
 
 
  const boxTarget = {
-   drop(props, monitor) {
-    //  moveKnight(props.x, props.y);
+   drop(props, monitor, component) {
+
+     const dropedFoodIndex = monitor.getItem().index;
+
+     component.props.deleteDropedFood(dropedFoodIndex)
+
+    
    }
  };
 

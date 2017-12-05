@@ -3,14 +3,11 @@ import { DELETE_FOOD, PUSH_FOOD } from '../constants/actions';
 
 
 
-const deleteFood = (food) => {
-  return (dispatch, getState) => {
-    dispatch(
+const deleteFood = (foodsAfterDelete) => ({
       type: DELETE_FOOD,
-      payload: food,
-    )
-  }
-}
+      payload: foodsAfterDelete,
+    });
+
 
 
 const pushFood = (data) => {
@@ -19,6 +16,20 @@ const pushFood = (data) => {
       payload: data,
     }
 };
+
+
+export const deleteThisFood = (food) => (
+  (dispatch, getState) => {
+    const availabelFoods = getState().availabelFoods;
+
+
+    availabelFoods.splice(food.index, 1);
+
+    return dispatch(deleteFood(availabelFoods));
+  }
+)
+
+
 
 
 export const pushHoveredFood = (druggedElementIndex, hoveredElementIndex) => {

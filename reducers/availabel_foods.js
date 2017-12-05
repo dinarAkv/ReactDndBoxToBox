@@ -34,14 +34,15 @@ export default function availabelFoods(state = initState, action){
 
   if (action.type === DELETE_FOOD) {
 
+    console.log('reducer food deleted');
+
     return [
       action.payload
     ];
   }
 
   if (action.type === PUSH_FOOD) {
-    console.log('reducer availabelFoods:', action.payload.availabelFoods);
-    console.log('..state:', [...state]);
+
 
     return  action.payload.availabelFoods;
   }

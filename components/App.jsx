@@ -52,7 +52,7 @@ import * as AvailabelFoodActionCreators  from '../actions/availabel_foods';
           }
         )}
 
-
+        <Box deleteDropedFood={this.props.availabelFoodsActions.deleteThisFood} />
 
 
       </div>
