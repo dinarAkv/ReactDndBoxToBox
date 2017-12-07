@@ -5,10 +5,11 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import {withRouter} from 'react-router';
-// import queryString from 'query-string';
 
 
-import * as AvailabelFoodActionCreators  from '../actions/availabel_foods';
+
+import * as availabelFoodActions  from '../actions/availabel_foods';
+import * as foodsInBoxActions from '../actions/foods_in_box';
 
 /**
 * High order components.
@@ -52,7 +53,11 @@ import * as AvailabelFoodActionCreators  from '../actions/availabel_foods';
           }
         )}
 
-        <Box deleteDropedFood={this.props.availabelFoodsActions.deleteThisFood} />
+        <Box
+          deleteDropedFood={this.props.availabelFoodsActions.deleteThisFood}
+          addFoodInBox={this.props.foodsInBoxActions.addFoodInBox}
+          foodsInBox={this.props.foodsInBox}
+        />
 
 
       </div>
@@ -64,13 +69,15 @@ import * as AvailabelFoodActionCreators  from '../actions/availabel_foods';
 const mapStateToProps = (state) => {
   return {
       availabelFoods: state.availabelFoods,
+      foodsInBox: state.foodsInBox,
   }
 
 };
 
 
 const mapDispatchToProps = (dispatch) => ({
-  availabelFoodsActions: bindActionCreators(AvailabelFoodActionCreators, dispatch),
+  availabelFoodsActions: bindActionCreators(availabelFoodActions, dispatch),
+  foodsInBoxActions: bindActionCreators(foodsInBoxActions, dispatch),
 });
 
 App = withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

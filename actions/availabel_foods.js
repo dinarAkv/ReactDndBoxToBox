@@ -23,9 +23,13 @@ export const deleteThisFood = (food) => (
     const availabelFoods = getState().availabelFoods;
 
 
-    availabelFoods.splice(food.index, 1);
+    const foodsAfterDelete = update(getState(), {
+      availabelFoods: {
+        $splice: [[food.index, 1]],
+      },
+    });
 
-    return dispatch(deleteFood(availabelFoods));
+    return dispatch(deleteFood(foodsAfterDelete.availabelFoods));
   }
 )
 

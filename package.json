@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "babel-jest": "^21.2.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "eslint": "^4.11.0",
     "eslint-config-google": "^0.9.1",
     "eslint-config-standard-jsx": "^4.0.2",

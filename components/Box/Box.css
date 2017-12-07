@@ -3,5 +3,10 @@
 .box-style{
   border: 2px solid #000;
   width: 300px;
-  height: 300px;
+  height: 400px;
+}
+
+.box__foods-group{
+  margin-left: 10px;
+  margin-top: 10px;
 }

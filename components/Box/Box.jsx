@@ -8,12 +8,12 @@ import { ItemTypes } from '../../constants/dndCompTypes';
 /**
 * High order components.
 */
-// import Menu from '../Menu/Menu.jsx';
+ import Food from '../Food/Food.jsx';
 
 /**
 * Styles.
 */
- import { boxStyle } from './Box.css';
+ import { boxStyle, boxFoodsGroup } from './Box.css';
 
 
 
@@ -23,9 +23,10 @@ import { ItemTypes } from '../../constants/dndCompTypes';
 
      const dropedFoodIndex = monitor.getItem().index;
 
-     component.props.deleteDropedFood(dropedFoodIndex)
+     component.props.addFoodInBox(dropedFoodIndex);
+     component.props.deleteDropedFood(dropedFoodIndex);
 
-    
+
    }
  };
 
@@ -55,7 +56,17 @@ class Box extends React.Component {
 
     return connectDropTarget(
       <div className={boxStyle}>
+        <div className={boxFoodsGroup}>
+          {this.props.foodsInBox.map((food, index, arr) => {
 
+
+              return (
+                <Food key={food.id} value={arr[index].name} id={food.id} index={index}
+                />
+              );
+            }
+          )}
+        </div>
       </div>
     );
   }

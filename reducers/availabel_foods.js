@@ -32,13 +32,11 @@ const initState = [
 
 export default function availabelFoods(state = initState, action){
 
+
   if (action.type === DELETE_FOOD) {
 
-    console.log('reducer food deleted');
+    return action.payload;
 
-    return [
-      action.payload
-    ];
   }
 
   if (action.type === PUSH_FOOD) {
@@ -46,6 +44,8 @@ export default function availabelFoods(state = initState, action){
 
     return  action.payload.availabelFoods;
   }
+
+
 
   return state;
 }
